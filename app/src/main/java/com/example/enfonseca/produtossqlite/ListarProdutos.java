@@ -12,9 +12,9 @@ public class ListarProdutos extends AppCompatActivity {
     DatabaseHandler db;
     ListView list;
 
-    String [] ids;
-    String [] nomes;
-    String [] precos;
+    String [] ids={"1","2"};
+    String [] nomes={"1","2"};
+    String [] precos={"1","2"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +26,28 @@ public class ListarProdutos extends AppCompatActivity {
         db = new DatabaseHandler(this);
         list= (ListView) findViewById(R.id.listView);
 
-        ProdutoAdapter adapter = new ProdutoAdapter(this,ids,nomes,precos);
-        list.setAdapter(adapter);
 
 
 
-        //Toast.makeText(ListarProdutos.this, "Lendo todos os produtos..", Toast.LENGTH_LONG).show();
+
+
+        Toast.makeText(ListarProdutos.this, "Lendo todos os produtos..", Toast.LENGTH_LONG).show();
         List<Produto> ListaProdutos = db.getAllProdutos();
         int i=0;
         for (Produto p: ListaProdutos) {
             String log = "Id: "+p.getId()+" ,Nome: " + p.getNome() + " ,Preço: " + p.getPreco();
             // Writing Contacts to log
             //Log.d("Name: ", log);
-            ids[i]=p.getNome();
+            ids[i]=""+p.getId();
             nomes[i]=p.getNome();
-            precos[i]=p.getNome();
+            precos[i]=""+p.getPreco();
             i++;
 
-            //Toast.makeText(ListarProdutos.this, log,Toast.LENGTH_LONG).show();
+            Toast.makeText(ListarProdutos.this, log,Toast.LENGTH_LONG).show();
         }
 
+        ProdutoAdapter adapter = new ProdutoAdapter(this,ids,nomes,precos);
 
-
-
+        list.setAdapter(adapter);
     }
 }
