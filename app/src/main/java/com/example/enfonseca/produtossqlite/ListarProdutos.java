@@ -12,9 +12,7 @@ public class ListarProdutos extends AppCompatActivity {
     DatabaseHandler db;
     ListView list;
 
-    String [] ids={"1","2"};
-    String [] nomes={"1","2"};
-    String [] precos={"1","2"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +31,14 @@ public class ListarProdutos extends AppCompatActivity {
 
         Toast.makeText(ListarProdutos.this, "Lendo todos os produtos..", Toast.LENGTH_LONG).show();
         List<Produto> ListaProdutos = db.getAllProdutos();
+
+        int N=ListaProdutos.size();
+        Toast.makeText(ListarProdutos.this, " total: "+N,Toast.LENGTH_LONG).show();
+
+        String [] ids= new String[N];
+        String [] nomes= new String[N];
+        String [] precos = new String[N];;
+
         int i=0;
         for (Produto p: ListaProdutos) {
             String log = "Id: "+p.getId()+" ,Nome: " + p.getNome() + " ,Preço: " + p.getPreco();
@@ -49,5 +55,6 @@ public class ListarProdutos extends AppCompatActivity {
         ProdutoAdapter adapter = new ProdutoAdapter(this,ids,nomes,precos);
 
         list.setAdapter(adapter);
+
     }
 }

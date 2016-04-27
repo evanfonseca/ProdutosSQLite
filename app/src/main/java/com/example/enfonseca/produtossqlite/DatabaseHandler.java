@@ -118,7 +118,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
 
 
     //Saber quantos produtos tem a lista
-    public int getContactsCount() {
+    public int getProdutosCount() {
         String countQuery = "SELECT  * FROM " + TABLE_Produtos;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
