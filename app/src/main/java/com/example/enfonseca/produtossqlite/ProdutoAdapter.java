@@ -28,8 +28,23 @@ public class ProdutoAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position,View ConvertView, ViewGroup parent){
+
+        View row=ConvertView;
+
+
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View row=inflater.inflate(R.layout.linha_item_produto,parent,false);
+
+        if(row==null){
+
+
+            row=inflater.inflate(R.layout.linha_item_produto,parent,false);
+
+
+        }
+
+
+        //LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //View row=inflater.inflate(R.layout.linha_item_produto,parent,false);
 
 
         TextView mNome= (TextView) row.findViewById(R.id.t_nome);

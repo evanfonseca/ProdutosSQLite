@@ -49,7 +49,7 @@ public class ListarProdutos extends AppCompatActivity {
             precos[i]=""+p.getPreco();
             i++;
 
-            Toast.makeText(ListarProdutos.this, log,Toast.LENGTH_LONG).show();
+            //Toast.makeText(ListarProdutos.this, log,Toast.LENGTH_LONG).show();
         }
 
         ProdutoAdapter adapter = new ProdutoAdapter(this,ids,nomes,precos);
