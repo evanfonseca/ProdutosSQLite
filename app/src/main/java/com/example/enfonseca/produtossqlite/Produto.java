@@ -8,6 +8,7 @@ public class Produto {
     int id;
     String nome;
     double preco;
+    String desc;
 
     public int getId() {
         return id;
@@ -33,6 +34,14 @@ public class Produto {
         this.preco = preco;
     }
 
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     public Produto(int id, String nome, double preco) {
         this.id = id;
         this.nome = nome;
@@ -46,4 +55,21 @@ public class Produto {
 
     public Produto() {
     }
+
+
+    public Produto(int id, String nome, double preco, String desc) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.desc = desc;
+    }
+
+    public Produto(String nome, double preco, String desc) {
+        this.nome = nome;
+        this.preco = preco;
+        this.desc = desc;
+    }
+
+
+
 }

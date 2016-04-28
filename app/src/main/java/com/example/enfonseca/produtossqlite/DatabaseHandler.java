@@ -28,6 +28,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     private static final String KEY_ID_produto = "id";
     private static final String KEY_NOME_produto = "nome";
     private static final String KEY_Preco_produto = "preco";
+    private static final String KEY_Desc_produto = "descricao";
     //Fazer o mesmo para outras tabelas
 
     public DatabaseHandler(Context context) {
@@ -39,7 +40,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_Produtos = "CREATE TABLE " + TABLE_Produtos + "("
                 + KEY_ID_produto + " INTEGER PRIMARY KEY," + KEY_NOME_produto + " TEXT,"
-                + KEY_Preco_produto + " REAL" + ")";
+                + KEY_Preco_produto + " REAL," + KEY_Desc_produto+ " TEXT " +")";
         db.execSQL(CREATE_TABLE_Produtos);
 
 
@@ -63,6 +64,7 @@ public class DatabaseHandler extends SQLiteOpenHelper
         ContentValues values = new ContentValues();
         values.put(KEY_NOME_produto, p.getNome()); // Nome do Produto
         values.put(KEY_Preco_produto, p.getPreco()); // Preço do Produto
+        values.put(KEY_Desc_produto, p.getDesc()); // Descrição do Produto
 
         // Inserting Row
         long id = db.insert(TABLE_Produtos, null, values);
@@ -77,13 +79,18 @@ public class DatabaseHandler extends SQLiteOpenHelper
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_Produtos, new String[]{KEY_ID_produto,
-                        KEY_NOME_produto, KEY_Preco_produto}, KEY_ID_produto + "=?",
+                        KEY_NOME_produto, KEY_Preco_produto,KEY_Desc_produto}, KEY_ID_produto + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        Produto p = new Produto(Integer.parseInt(cursor.getString(0)),
-                cursor.getString(1), cursor.getDouble(2));
+        int id_=Integer.parseInt(cursor.getString(0));
+        String nome_=cursor.getString(1);
+        Double preco_ = cursor.getDouble(2);
+        String desc_= cursor.getString(3);
+
+
+        Produto p = new Produto(id_,nome_, preco_,desc_);
         // returnar o produto obtido
         return p;
     }

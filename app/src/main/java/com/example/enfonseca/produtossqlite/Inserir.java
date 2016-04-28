@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Inserir extends AppCompatActivity {
 
-    EditText nome,preco;
+    EditText nome,preco, desc;
     Button inserir;
     DatabaseHandler db;
 
@@ -28,6 +28,8 @@ public class Inserir extends AppCompatActivity {
 
         preco = (EditText) findViewById(R.id.preco);
 
+        desc = (EditText) findViewById(R.id.desc);
+
         inserir= (Button) findViewById(R.id.inserir);
 
         inserir.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +39,9 @@ public class Inserir extends AppCompatActivity {
                 String n= nome.getText().toString();
                 double pr=Double.parseDouble(preco.getText().toString());
 
-                Produto p = new Produto(n,pr);
+                String d=desc.getText().toString();
+
+                Produto p = new Produto(n,pr,d);
 
 
                 long id=db.addPruduto(p);

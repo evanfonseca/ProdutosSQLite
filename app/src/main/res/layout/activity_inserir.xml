@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.enfonseca.produtossqlite.Inserir"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <EditText
         android:layout_width="match_parent"
@@ -23,9 +24,17 @@
         android:hint="Preço"
         android:inputType="numberDecimal" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/desc"
+        android:hint="Escreva uma descrição para o produto."
+        android:layout_weight="0.51" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inserir"
         android:id="@+id/inserir" />
+
 </LinearLayout>
