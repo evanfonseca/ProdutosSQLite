@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Inserir" />
-        <activity android:name=".ListarProdutos"></activity>
+        <activity android:name=".ListarProdutos" />
+        <activity android:name=".MostraProduto"></activity>
     </application>
 
 </manifest>
