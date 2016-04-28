@@ -29,7 +29,21 @@
         android:layout_height="wrap_content"
         android:id="@+id/desc"
         android:hint="Escreva uma descrição para o produto."
-        android:layout_weight="0.51" />
+        android:layout_weight="0.51"
+        android:textAlignment="center" />
+
+    <ImageView
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_weight="0.35"
+        android:src="@mipmap/ic_launcher" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/carregarImg"
+        android:hint="Carregar Imagem" />
 
     <Button
         android:layout_width="wrap_content"
